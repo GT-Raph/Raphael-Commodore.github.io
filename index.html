@@ -496,6 +496,50 @@
             color: var(--secondary-color);
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(20, 24, 31, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 40px 30px 30px 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            position: relative;
+            text-align: left;
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        @media (max-width: 600px) {
+            .modal-content {
+                padding: 25px 10px 20px 10px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
@@ -643,6 +687,18 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- IT Intern Kolebu Teaching Hospital -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2021 - Mar 2022</div>
+                        <h3>IT Intern</h3>
+                        <h4>Kolebu Teaching Hospital, IT Department</h4>
+                        <p>
+                            Completed an internship in the IT department where I was responsible for diagnosing and repairing computers and laptops, ensuring smooth operation of hardware for hospital staff and departments.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -666,17 +722,17 @@
                             <span class="project-tag">TensorFlow</span>
                             <span class="project-tag">Keras</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-modal="modal-maize">Read More</a>
                     </div>
                 </div>
 
-                <!-- Facial Recognition System -->
+                <!-- Smart Sentiment Analysis System -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #e74c3c;">
                         <i class="fas fa-smile"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Facial Recognition System</h3>
+                        <h3>Smart Sentiment Analysis System</h3>
                         <p>Developed a system detecting customer emotions (happy/neutral/angry) with 88% accuracy for Fidelity Bank Ghana.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -684,7 +740,7 @@
                             <span class="project-tag">Computer Vision</span>
                             <span class="project-tag">AI</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-modal="modal-sentiment">Read More</a>
                     </div>
                 </div>
 
@@ -702,9 +758,74 @@
                             <span class="project-tag">JavaScript</span>
                             <span class="project-tag">Bootstrap</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-modal="modal-complaint">Read More</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- Modals for project details -->
+        <div id="modal-maize" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <h3>Maize Disease Detection</h3>
+                <p>
+                    This project is a web application that leverages deep learning to identify diseases in maize leaves from uploaded images. Built with a Flask backend and a Keras/TensorFlow model, it allows farmers and agricultural experts to quickly diagnose plant health issues. The model was trained on a large dataset of maize leaf images and achieves high accuracy in classifying common diseases. The user interface is simple and mobile-friendly, making it accessible in the field.
+                </p>
+                <h4 style="margin-top:1.5em;color:#e74c3c;">Challenges & Solutions</h4>
+                <ul style="margin-left:1em;">
+                    <li>
+                        <strong>Challenge:</strong> Insufficient labeled images for certain rare maize diseases.<br>
+                        <strong>Solution:</strong> Used data augmentation and sourced additional open datasets to improve model generalization and accuracy.
+                    </li>
+                    <li style="margin-top:1em;">
+                        <strong>Challenge:</strong> Ensuring the model runs efficiently on low-resource devices in the field.<br>
+                        <strong>Solution:</strong> Optimized the model and reduced its size for faster inference and lower memory usage.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="modal-sentiment" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <h3>Smart Sentiment Analysis System <span style="font-size:0.9em;color:#e67e22;">(Ongoing)</span></h3>
+                <p>
+                    This ongoing project for Fidelity Bank Ghana analyzes customer emotions in real time using facial recognition and AI. It uses a ResNet-50 model with TensorFlow and OpenCV to detect emotions such as happy, neutral, and angry, achieving 88% accuracy so far. The system integrates with the bank's CRM via REST API, enabling automated tagging of customer feedback and improving service response. User acceptance testing has shown positive results among staff.
+                </p>
+                <h4 style="margin-top:1.5em;color:#e74c3c;">Challenges & Solutions</h4>
+                <ul style="margin-left:1em;">
+                    <li>
+                        <strong>Challenge:</strong> Limited dataset for training the emotion detection model led to initial low accuracy.<br>
+                        <strong>Solution:</strong> Expanded the dataset by collecting more customer images and applied data augmentation techniques, which improved model performance.
+                    </li>
+                    <li style="margin-top:1em;">
+                        <strong>Challenge:</strong> Integration issues between the AI system and the bank's CRM.<br>
+                        <strong>Solution:</strong> Developed a custom REST API layer and worked closely with the CRM team to ensure seamless data exchange.
+                    </li>
+                    <li style="margin-top:1em;">
+                        <strong>Challenge:</strong> Real-time processing speed was initially slow.<br>
+                        <strong>Solution:</strong> Optimized the model and code for faster inference and leveraged hardware acceleration where available.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="modal-complaint" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <h3>Complaint Management System</h3>
+                <p>
+                    This is a full-stack web application designed to streamline complaint tracking and resolution for organizations. Built with Django and MySQL, the system allows users to submit, monitor, and resolve complaints efficiently. It features role-based access, automated notifications, and analytics dashboards. The user interface was designed with Figma and implemented using Bootstrap and JavaScript for a responsive experience.
+                </p>
+                <h4 style="margin-top:1.5em;color:#e74c3c;">Challenges & Solutions</h4>
+                <ul style="margin-left:1em;">
+                    <li>
+                        <strong>Challenge:</strong> Handling concurrent user submissions and ensuring data consistency.<br>
+                        <strong>Solution:</strong> Implemented robust transaction management and database locking mechanisms in Django.
+                    </li>
+                    <li style="margin-top:1em;">
+                        <strong>Challenge:</strong> Making the system intuitive for non-technical users.<br>
+                        <strong>Solution:</strong> Conducted user testing and iteratively improved the UI/UX using feedback and Figma prototypes.
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -885,18 +1006,18 @@
                 <p><i class="fas fa-phone"></i> +233 24 497 0928</p>
                 <p><i class="fas fa-envelope"></i> mail4raphaelcommodore@gmail.com</p>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xeolvopz" method="POST" id="contactForm">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Subject">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="Your Message" required></textarea>
+                    <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-accent">Send Message</button>
             </form>
@@ -906,7 +1027,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="logo">Raphael<span>Commodore</span></div>
+            <div class="logo">Raphael <span>Commodore</span></div>
             <div class="social-links">
                 <a href="https://github.com/Coder-Raph" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -932,12 +1053,12 @@
             });
         });
 
-        // Form submission (for demonstration purposes)
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thanks for your message! This is a demo form.');
-            this.reset();
-        });
+        // Remove the demo form JS handler so the form submits to Formspree
+        // document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     alert('Thanks for your message! This is a demo form.');
+        //     this.reset();
+        // });
 
         // Animate skill bars when they come into view
         const animateSkillBars = () => {
@@ -967,6 +1088,40 @@
         if (skillsSection) {
             observer.observe(skillsSection);
         }
+
+        // Modal functionality for project "Read More"
+        document.querySelectorAll('.btn[data-modal]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                }
+            });
+        });
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('.modal').classList.remove('active');
+            });
+        });
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Clear the form after successful submission (without reloading the page)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Let the form submit normally to Formspree
+            var form = this;
+            setTimeout(function() {
+                form.reset();
+            }, 100); // clear after a short delay to allow Formspree to process
+        });
     </script>
 </body>
 </html>
