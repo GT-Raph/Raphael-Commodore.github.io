@@ -15,12 +15,15 @@
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
+            --primary-color: #1a222d;
+            --secondary-color: #2980b9;
             --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
+            --light-color: #232b38;
+            --dark-color: #11161c;
+            --text-color: #e0e6ed;
+            --card-bg: #232b38;
+            --input-bg: #181e26;
+            --input-border: #2c3e50;
             --transition: all 0.3s ease;
         }
 
@@ -31,7 +34,7 @@
         body {
             line-height: 1.6;
             color: var(--text-color);
-            background-color: #f9f9f9;
+            background-color: var(--dark-color);
         }
 
         .container {
@@ -43,11 +46,12 @@
 
         section {
             padding: 80px 0;
+            background: var(--primary-color);
         }
 
         h1, h2, h3, h4 {
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: var(--text-color);
         }
 
         h2 {
@@ -70,6 +74,7 @@
 
         p {
             margin-bottom: 15px;
+            color: #bfc9d4;
         }
 
         a {
@@ -94,13 +99,14 @@
             font-weight: 600;
             transition: var(--transition);
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .btn:hover {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--secondary-color);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
         }
 
         .btn-accent {
@@ -109,12 +115,13 @@
 
         .btn-accent:hover {
             background-color: #c0392b;
+            color: #fff;
         }
 
         /* Header & Navigation */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             position: fixed;
             width: 100%;
             top: 0;
@@ -131,11 +138,12 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--secondary-color);
+            letter-spacing: 1px;
         }
 
         .logo span {
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
 
         .nav-links {
@@ -148,34 +156,38 @@
         }
 
         .nav-links a {
-            color: var(--dark-color);
+            color: var(--text-color);
             font-weight: 600;
             font-size: 1.1rem;
+            padding: 6px 12px;
+            border-radius: 4px;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary-color);
+        .nav-links a:hover, .nav-links a:focus {
+            background: var(--secondary-color);
+            color: #fff;
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            color: var(--text-color);
         }
 
         /* Hero Section */
         .hero {
             padding-top: 150px;
             padding-bottom: 80px;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
+            background: linear-gradient(135deg, #181e26 0%, #232b38 100%);
+            color: var(--text-color);
             text-align: center;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            color: white;
+            color: var(--secondary-color);
         }
 
         .hero p {
@@ -184,6 +196,7 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            color: #bfc9d4;
         }
 
         .hero-buttons {
@@ -209,10 +222,11 @@
             text-align: center;
         }
 
-        .about-image img {
+        .about-image img, .about-image > div {
             max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: var(--card-bg);
         }
 
         .skills {
@@ -227,6 +241,7 @@
             padding: 10px 20px;
             border-radius: 30px;
             font-weight: 600;
+            color: var(--text-color);
         }
 
         /* Projects Section */
@@ -237,21 +252,21 @@
         }
 
         .project-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
             transition: var(--transition);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
         }
 
         .project-img {
             height: 200px;
-            background-color: #3498db;
+            background-color: var(--secondary-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -266,6 +281,7 @@
         .project-info h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+            color: var(--secondary-color);
         }
 
         .project-tags {
@@ -277,6 +293,7 @@
 
         .project-tag {
             background-color: var(--light-color);
+            color: var(--text-color);
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 0.8rem;
@@ -312,7 +329,7 @@
             position: absolute;
             width: 25px;
             height: 25px;
-            background-color: white;
+            background-color: var(--card-bg);
             border: 4px solid var(--secondary-color);
             border-radius: 50%;
             top: 15px;
@@ -335,9 +352,11 @@
 
         .timeline-content {
             padding: 20px;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            /* Add text alignment for justification */
+            text-align: justify;
         }
 
         .timeline-date {
@@ -354,16 +373,16 @@
         }
 
         .education-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
             transition: var(--transition);
         }
 
         .education-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
         }
 
         .education-icon {
@@ -380,10 +399,10 @@
         }
 
         .skills-category {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
         }
 
         .skills-category h3 {
@@ -400,6 +419,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
+            color: var(--text-color);
         }
 
         .skill-bar {
@@ -417,7 +437,7 @@
 
         /* Contact Section */
         .contact {
-            background-color: var(--light-color);
+            background-color: var(--primary-color);
             text-align: center;
         }
 
@@ -433,9 +453,17 @@
         .form-control {
             width: 100%;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--input-border);
             border-radius: 5px;
             font-size: 1rem;
+            background: var(--input-bg);
+            color: var(--text-color);
+            transition: border 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
         }
 
         textarea.form-control {
@@ -445,8 +473,8 @@
 
         /* Footer */
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             padding: 40px 0;
             text-align: center;
         }
@@ -459,8 +487,9 @@
         }
 
         .social-links a {
-            color: white;
+            color: var(--text-color);
             font-size: 1.5rem;
+            transition: color 0.2s;
         }
 
         .social-links a:hover {
@@ -480,9 +509,9 @@
                 width: 100%;
                 height: calc(100vh - 80px);
                 flex-direction: column;
-                background-color: white;
+                background-color: var(--primary-color);
                 transition: 0.5s;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
                 padding-top: 20px;
             }
 
@@ -594,14 +623,12 @@
                 <!-- AI Engineering Intern -->
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <div class="timeline-date">Apr 2025 - Present</div>
-                        <h3>AI Engineering Intern</h3>
+                        <div class="timeline-date">Apr 2024 - May 2024</div>
+                        <h3>IT Intern</h3>
                         <h4>Fidelity Bank Ghana, Accra</h4>
-                        <ul>
-                            <li>Developed a facial recognition system detecting customer emotions (happy/neutral/angry) with 88% accuracy</li>
-                            <li>Integrated an AI model with bank CRM via FAST API, reducing feedback processing time by 40%</li>
-                            <li>Automated Windows OS deployment for 30+ machines using SCCM, improving setup efficiency by 25%</li>
-                        </ul>
+                        <p>
+                            During my 6-week industrial attachment, I resolved over 50 end-user hardware and software issues, proactively reduced printer downtime by 30%, and streamlined Windows 11 deployment for more than 30 machines using SCCM, cutting setup time by 25%. I also designed and built a Smart Customer Sentiment Analysis System using facial recognition and AI (ResNet-50, TensorFlow), achieving 88% accuracy in emotion detection. The prototype was integrated with the bank’s CRM via REST API and underwent successful user acceptance testing with staff.
+                        </p>
                     </div>
                 </div>
 
@@ -611,10 +638,9 @@
                         <div class="timeline-date">Nov 2023 - Sept 2024</div>
                         <h3>Software Developer (National Service)</h3>
                         <h4>Ghana Communication Technology University</h4>
-                        <ul>
-                            <li>Built 3 full-stack systems: Complaint Management (Django/MySQL), E-commerce Platform (Django/MySQL), Ticketing System (Django/MySQL)</li>
-                            <li>Designed intuitive interfaces with Figma, improving user adoption by 35%</li>
-                        </ul>
+                        <p>
+                            As a Software Developer during my national service, I built three full-stack systems, including a Complaint Management System, an E-commerce Platform, and a Ticketing System, all using Django and MySQL. I also designed intuitive user interfaces with Figma, which improved user adoption by 35%.
+                        </p>
                     </div>
                 </div>
             </div>
