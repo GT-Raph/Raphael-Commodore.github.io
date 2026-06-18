@@ -361,6 +361,109 @@ footer{
   padding-left:1rem;border-left:2px solid var(--accent);
 }
 .modal-body li strong{color:var(--ink);font-weight:500}
+
+
+/* ─── RESPONSIVE REFINEMENTS ─── */
+:root{--page-pad:clamp(1rem,4vw,3rem);--nav-h:72px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-width:320px}
+a,button,input,textarea{font:inherit}
+a,button{touch-action:manipulation}
+svg{max-width:100%;height:auto}
+.section-inner,.hero-wrap,footer{width:min(100%,1200px)}
+section{padding:clamp(3.5rem,8vw,6rem) var(--page-pad)}
+.section-label{margin-bottom:clamp(1.8rem,4vw,3rem)}
+.section-heading{text-wrap:balance;margin-bottom:clamp(2rem,5vw,3rem)}
+nav{min-height:var(--nav-h);padding:1rem var(--page-pad)}
+.nav-links{min-width:0}
+.hero{min-height:100svh;padding:clamp(7rem,12vw,10rem) var(--page-pad) clamp(3rem,8vw,6rem);grid-template-columns:minmax(0,1.1fr) minmax(280px,0.9fr);gap:clamp(2rem,6vw,5rem)}
+.hero-name{font-size:clamp(2.65rem,10vw,5.8rem);overflow-wrap:anywhere}
+.hero-title{font-size:clamp(1rem,2.5vw,1.35rem)}
+.hero-desc{font-size:clamp(0.95rem,1.8vw,1rem)}
+.hero-right,.hero-left,.about-grid,.contact-grid,.skills-layout,.projects-grid{min-width:0}
+.btn-primary,.btn-ghost,.nav-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.stat-card{gap:1rem;min-width:0}
+.stat-num{font-size:clamp(2rem,5vw,2.5rem)}
+.stat-label,.hero-live{overflow-wrap:anywhere}
+.about-grid,.contact-grid{gap:clamp(2.5rem,7vw,6rem)}
+.exp-item,.edu-item{grid-template-columns:minmax(140px,220px) minmax(0,1fr)}
+.project-card{min-width:0}
+.project-title,.project-desc,.exp-desc,.about-body p,.contact-sub,.modal-body p,.modal-body li{overflow-wrap:anywhere}
+.skills-layout{gap:clamp(1.5rem,4vw,3rem)}
+.contact-row{min-width:0;align-items:flex-start}
+.contact-row a,.contact-row span{overflow-wrap:anywhere;word-break:break-word}
+.form-row input,.form-row textarea{min-height:44px}
+footer{padding:clamp(2rem,5vw,2.5rem) var(--page-pad)}
+
+@media(max-width:1100px){
+  .nav-links{gap:1.35rem}
+  .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:900px){
+  :root{--nav-h:64px}
+  .hero{grid-template-columns:1fr;min-height:auto;align-items:start}
+  .hero-right{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:transparent;gap:1px}
+  .stat-card{flex-direction:column;align-items:flex-start;padding:1.35rem;background:var(--surface)}
+  .stat-svg{align-self:flex-end;width:34px;height:34px}
+  .hero-live{grid-column:1/-1;padding:1rem 1.35rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:768px){
+  nav{padding:0.9rem var(--page-pad)}
+  .hamburger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-0.6rem}
+  .nav-links{display:flex;position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:1.25rem;background:rgba(22,22,22,0.98);padding:1.5rem var(--page-pad) 2rem;border-bottom:1px solid var(--rule);box-shadow:0 20px 40px rgba(0,0,0,0.35);max-height:calc(100svh - var(--nav-h));overflow-y:auto;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+  .nav-links a{display:block;font-size:0.82rem;padding:0.45rem 0;color:var(--ink)}
+  .nav-cta{display:none}
+  .exp-item,.edu-item{grid-template-columns:1fr;gap:0.75rem;padding:2rem 0}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  #scrollTop{width:42px;height:42px;right:1rem;bottom:1rem}
+  .modal-bg{padding:1rem;align-items:flex-end}
+  .modal-box{max-height:88svh;padding:2rem 1.25rem 1.5rem;border-radius:14px 14px 0 0}
+  .modal-close-btn{top:1rem;right:1rem;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+}
+
+@media(max-width:640px){
+  .hero{padding-top:calc(var(--nav-h) + 2.25rem);gap:2.25rem}
+  .hero-eyebrow{font-size:0.62rem;letter-spacing:0.1em;margin-bottom:1.25rem}
+  .hero-eyebrow::before{width:20px}
+  .hero-name{line-height:0.98;margin-bottom:0.85rem}
+  .hero-title{margin-bottom:1.2rem}
+  .hero-desc{line-height:1.7;margin-bottom:1.6rem}
+  .hero-actions{flex-direction:column;gap:0.75rem}
+  .hero-actions a{width:100%}
+  .hero-right{grid-template-columns:1fr}
+  .stat-card{flex-direction:row;align-items:center;padding:1.25rem}
+  .stat-svg{align-self:center;width:32px;height:32px}
+  .section-heading{line-height:1.08}
+  .project-card{padding:1.5rem}
+  .project-arrow{opacity:1;top:1.35rem;right:1.35rem}
+  .chip,.exp-tag,.project-stack span{white-space:normal}
+  .contact-tagline{line-height:1.1}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:1rem 1.5rem}
+}
+
+@media(max-width:420px){
+  :root{--page-pad:1rem}
+  .nav-logo{font-size:1rem}
+  .hero-name{font-size:clamp(2.35rem,13vw,3rem)}
+  .stat-card{gap:0.75rem}
+  .stat-num{font-size:1.85rem}
+  .stat-label{font-size:0.6rem;letter-spacing:0.06em}
+  .btn-primary,.btn-ghost{padding:0.8rem 1rem;font-size:0.68rem}
+  .contact-row{gap:0.75rem}
+  .contact-icon{width:32px;height:32px}
+  .form-row textarea{min-height:120px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+
 </style>
 </head>
 <body>
@@ -375,7 +478,7 @@ footer{
     <li><a href="#education">Education</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's talk</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="4" width="22" height="1.5" fill="currentColor"/><rect y="10" width="22" height="1.5" fill="currentColor"/><rect y="16" width="22" height="1.5" fill="currentColor"/></svg>
   </button>
 </nav>
@@ -842,8 +945,13 @@ footer{
 <script>
 const hamburger=document.getElementById('hamburger');
 const navLinks=document.getElementById('navLinks');
-hamburger.addEventListener('click',()=>navLinks.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+function setMenu(open){
+  navLinks.classList.toggle('open',open);
+  hamburger.setAttribute('aria-expanded',String(open));
+}
+hamburger.addEventListener('click',()=>setMenu(!navLinks.classList.contains('open')));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+window.addEventListener('resize',()=>{if(window.innerWidth>768)setMenu(false)});
 
 const st=document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>st.classList.toggle('visible',window.scrollY>400));
