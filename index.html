@@ -377,7 +377,8 @@ section{padding:clamp(3.5rem,8vw,6rem) var(--page-pad)}
 nav{min-height:var(--nav-h);padding:1rem var(--page-pad)}
 .nav-links{min-width:0}
 .hero{min-height:100svh;padding:clamp(7rem,12vw,10rem) var(--page-pad) clamp(3rem,8vw,6rem);grid-template-columns:minmax(0,1.1fr) minmax(280px,0.9fr);gap:clamp(2rem,6vw,5rem)}
-.hero-name{font-size:clamp(2.65rem,10vw,5.8rem);overflow-wrap:anywhere}
+.hero-name{font-size:clamp(3.2rem,5.5vw,5.8rem);overflow-wrap:normal;word-break:normal;hyphens:none}
+.hero-name>span,.hero-name>em{display:block;white-space:nowrap;overflow-wrap:normal;word-break:normal;hyphens:none}
 .hero-title{font-size:clamp(1rem,2.5vw,1.35rem)}
 .hero-desc{font-size:clamp(0.95rem,1.8vw,1rem)}
 .hero-right,.hero-left,.about-grid,.contact-grid,.skills-layout,.projects-grid{min-width:0}
@@ -464,6 +465,59 @@ footer{padding:clamp(2rem,5vw,2.5rem) var(--page-pad)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
 
+
+/* ─── HERO NAME FIT FIX ─── */
+.hero{
+  grid-template-columns:minmax(0,1.22fr) minmax(340px,0.78fr);
+  gap:clamp(2rem,4vw,4rem);
+}
+.hero-left{
+  min-width:0;
+  max-width:100%;
+  container-type:inline-size;
+}
+.hero-name{
+  width:100%;
+  max-width:100%;
+  font-size:clamp(2.65rem,9.8cqw,4.9rem);
+  line-height:0.96;
+  letter-spacing:-0.06em;
+}
+.hero-name>span,
+.hero-name>em{
+  display:block;
+  max-width:100%;
+  white-space:nowrap;
+}
+
+@supports not (font-size:1cqw){
+  .hero-name{font-size:clamp(2.65rem,4.55vw,4.9rem)}
+}
+
+@media(max-width:1100px) and (min-width:901px){
+  .hero{
+    grid-template-columns:minmax(0,1.18fr) minmax(330px,0.82fr);
+    gap:2.25rem;
+  }
+  .hero-name{font-size:clamp(2.65rem,9.5cqw,4.35rem)}
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-name{font-size:clamp(3rem,9.8cqw,5rem)}
+}
+
+@media(max-width:640px){
+  .hero-name{
+    font-size:clamp(2rem,9.5cqw,3.75rem);
+    letter-spacing:-0.065em;
+  }
+}
+
+@media(max-width:360px){
+  .hero-name{font-size:clamp(1.82rem,9.35cqw,2.4rem)}
+}
+
 </style>
 </head>
 <body>
@@ -488,7 +542,7 @@ footer{padding:clamp(2rem,5vw,2.5rem) var(--page-pad)}
   <div class="hero">
     <div class="hero-left">
       <div class="hero-eyebrow">Based in Accra, Ghana</div>
-      <h1 class="hero-name">Raphael<br><em>Commodore</em></h1>
+      <h1 class="hero-name"><span>Raphael</span><em>Commodore</em></h1>
       <p class="hero-title">AI Engineer &amp; Full-Stack Developer</p>
       <p class="hero-desc">Building intelligent systems that solve real problems — from facial recognition at scale to full-stack platforms used every day.</p>
       <div class="hero-actions">
@@ -567,7 +621,7 @@ footer{padding:clamp(2rem,5vw,2.5rem) var(--page-pad)}
         </div>
         <div class="sidebar-block">
           <div class="sidebar-title">Contact</div>
-          <p style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.03em;color:var(--muted);margin:0;line-height:1.9">mail4raphaelcommodore@gmail.com<br>+233 50 563 3931</p>
+          <p style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.03em;color:var(--muted);margin:0;line-height:1.9">mail4raphaelcommodore@gmail.com<br>+233 24 497 0928</p>
         </div>
       </div>
     </div>
