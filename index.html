@@ -169,7 +169,7 @@ img,svg{display:block;max-width:100%}
   background:linear-gradient(160deg,rgba(17,23,44,.92),rgba(5,8,20,.94));
   border:1px solid var(--line-strong);box-shadow:var(--shadow);
 }
-.profile-panel::before{content:"";position:absolute;width:18rem;height:18rem;border-radius:50%;right:-10rem;top:-10rem;background:rgba(124,108,255,.18);filter:blur(55px)}
+.profile-panel::before{content:"";position:absolute;width:18rem;height:18rem;border-radius:50%;right:-9rem;top:-10rem;background:rgba(124,108,255,.18);filter:blur(55px)}
 .profile-panel::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 38%)}
 .profile-top,.profile-grid,.profile-footer{position:relative;z-index:1}
 .profile-top{padding:.4rem .35rem 1.25rem;border-bottom:1px solid var(--line)}
@@ -314,9 +314,6 @@ img,svg{display:block;max-width:100%}
 /* Responsive */
 @media(max-width:1180px){
   .hero-layout{grid-template-columns:1fr;gap:2.5rem}
-  .hero-copy{max-width:850px}
-  .hero-title{max-width:11ch}
-  .profile-panel{max-width:780px}
   .project-featured{grid-template-columns:1fr}
   .project-architecture{max-width:760px}
   .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -335,9 +332,6 @@ img,svg{display:block;max-width:100%}
   .education-card:last-child{grid-column:1/-1}
 }
 @media(max-width:700px){
-  .hero-title{font-size:clamp(3rem,15vw,5rem);max-width:none}
-  .hero-actions{flex-direction:column}
-  .hero-actions .button{width:100%}
   .profile-grid,.project-role-grid,.card-metrics,.projects-grid,.skills-grid,.education-grid,.modal-grid,.form-grid{grid-template-columns:1fr}
   .project-card:last-child,.education-card:last-child{grid-column:auto}
   .timeline-item{grid-template-columns:1fr;gap:.85rem}
@@ -350,176 +344,157 @@ img,svg{display:block;max-width:100%}
   .nav-wrap{top:10px}
   .nav{min-height:62px;padding:.65rem .7rem .65rem .85rem}
   .brand-name{display:none}
-  .hero{padding-top:7.8rem}
   .profile-panel,.project-featured,.project-card,.expertise-panel,.skill-card,.education-card,.contact-panel{border-radius:18px}
   .profile-footer{align-items:flex-start;flex-direction:column}
   .modal-backdrop{padding:.35rem;align-items:flex-end}
   .modal{max-height:94svh;border-radius:22px 22px 0 0}
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-
-
-/* Typography matched to the supplied reference */
-html, body{
-  font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-weight:400;
-  font-synthesis:none;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:geometricPrecision;
-}
-
-h1,h2,h3,h4,h5,h6,
-.brand-mark,.brand-name,
-.hero-title,.hero-role,
-.profile-top h2,.profile-stat strong,.profile-footer strong,
-.section-title,.project-title,.info-card strong,
-.architecture-head strong,.flow-item strong,
-.card-metrics strong,.timeline-company,.timeline-role,
-.skill-card h3,.education-degree,.contact-title,
-.modal-title,.modal-card strong{
-  font-family:'Syne',system-ui,sans-serif;
-}
-
-.section-kicker,.eyebrow,.mono-label,.badge,
-.button,.nav-links a,.brand-name small,
-.hero-meta,.project-number,.tech-list span,
-.architecture-head span,.flow-icon,.flow-item small,
-.card-metrics span,.expertise-group h3,
-.timeline-date,.timeline-location,.timeline-tags span,
-.skill-row small,.education-year,.contact-icon,
-.form-field label,.footer-inner,.modal-number,
-.modal-section h4,.modal-stack span{
-  font-family:'DM Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
-}
-
-.hero-title{
-  max-width:9.35ch;
-  font-size:clamp(3.9rem,7vw,7.25rem);
-  font-weight:800;
-  line-height:.86;
-  letter-spacing:-.078em;
-  text-wrap:balance;
-}
-.hero-title span{
-  display:block;
-  white-space:nowrap;
-}
-.hero-role{
-  font-weight:600;
-  letter-spacing:-.025em;
-}
-.hero-desc,.section-copy,.project-summary,.timeline-copy,
-.profile-top p,.contact-copy,.modal-subtitle,.modal-section p,
-.modal-list li{
-  font-family:'DM Sans',system-ui,sans-serif;
-  font-weight:400;
-}
-.section-title,.project-title,.contact-title,.modal-title{
-  font-weight:800;
-}
-.profile-top h2,.timeline-role,.education-degree{
-  font-weight:700;
-}
-.brand-mark{font-weight:800;letter-spacing:-.05em}
-.brand-name{font-weight:700}
-.nav-links a,.button,.section-kicker,.eyebrow,.mono-label,.badge,
-.project-number,.architecture-head span,.timeline-date,
-.education-year,.form-field label,.modal-number,.modal-section h4{
-  font-weight:500;
-}
-
-@media(max-width:1180px){
-  .hero-title{
-    max-width:10ch;
-    font-size:clamp(3.8rem,9vw,6.75rem);
-  }
-}
-@media(max-width:700px){
-  .hero-title{
-    max-width:none;
-    font-size:clamp(3rem,15.5vw,5rem);
-    line-height:.88;
-  }
-}
-@media(max-width:390px){
-  .hero-title{
-    font-size:clamp(2.75rem,15vw,4.2rem);
-    letter-spacing:-.07em;
-  }
-}
-
-
-
-/* Desktop hero overflow fix */
+/* Final responsive hero system */
 .hero-layout{
-  grid-template-columns:minmax(0,1fr) minmax(340px,430px);
-  gap:clamp(2rem,4vw,4rem);
-  align-items:start;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,430px);
+  gap:clamp(2.25rem,4vw,4.5rem);
+  align-items:center;
 }
+.hero-layout > *{min-width:0;}
 .hero-copy{
+  width:100%;
   max-width:none;
   min-width:0;
   container-type:inline-size;
+  position:relative;
+  z-index:2;
 }
 .hero-title{
-  max-width:100%;
   width:100%;
-  font-size:clamp(3.45rem,11.6cqi,6.2rem);
+  max-width:100%;
+  margin:1.35rem 0 1.4rem;
+  font-family:'Syne',system-ui,sans-serif;
+  font-size:clamp(3.25rem,10.35cqi,6.2rem);
+  font-weight:800;
   line-height:.88;
   letter-spacing:-.078em;
 }
 .hero-title span{
   display:block;
+  width:auto;
   max-width:100%;
   white-space:nowrap;
 }
 .profile-panel{
-  width:min(100%,430px);
+  position:relative;
+  width:100%;
+  max-width:430px;
   justify-self:end;
+  z-index:1;
 }
 
 @supports not (font-size:1cqi){
-  .hero-title{font-size:clamp(3.45rem,5.9vw,6.2rem);}
+  .hero-title{font-size:clamp(3.25rem,5.55vw,6.2rem);}
 }
 
-@media(max-width:1320px){
+@media(max-width:1180px){
+  .hero{
+    min-height:auto;
+    padding-top:clamp(8.5rem,15vw,10rem);
+  }
   .hero-layout{
-    grid-template-columns:minmax(0,1fr) minmax(320px,390px);
-    gap:2.25rem;
+    grid-template-columns:minmax(0,1fr);
+    gap:2.5rem;
+    align-items:start;
   }
-  .profile-panel{width:min(100%,390px);}
-}
-
-@media(max-width:1180px){
-  .hero-copy{container-type:normal;}
+  .hero-copy{
+    container-type:inline-size;
+    max-width:850px;
+  }
   .hero-title{
-    max-width:10ch;
-    font-size:clamp(3.8rem,9vw,6.75rem);
+    font-size:clamp(3.4rem,10.5cqi,6.35rem);
   }
-  .profile-panel{width:min(100%,780px);justify-self:start;}
+  .profile-panel{
+    position:relative;
+    inset:auto;
+    width:100%;
+    max-width:780px;
+    justify-self:start;
+    margin:0;
+    transform:none;
+  }
 }
 
-
-
-/* Robust hero title fitting: prevents any desktop overlap */
-.hero-copy{overflow:visible;}
-.hero-title{
-  width:100%;
-  max-width:100%;
-  font-size:var(--hero-title-size,5.4rem);
-}
-.hero-title span{
-  width:max-content;
-  max-width:none;
-  white-space:nowrap;
+@media(max-width:900px){
+  .hero-layout{gap:2rem;}
+  .profile-panel{max-width:100%;}
 }
 
-@media(max-width:1180px){
-  .hero-title{max-width:100%;}
+@media(max-width:700px){
+  .hero{
+    padding-top:7.75rem;
+    padding-bottom:4.25rem;
+  }
+  .hero-copy{
+    max-width:100%;
+    min-width:0;
+    overflow:visible;
+  }
+  .hero-title{
+    width:100%;
+    max-width:100%;
+    font-size:clamp(2.25rem,10.8cqi,4rem);
+    line-height:.9;
+    letter-spacing:-.075em;
+    overflow:visible;
+  }
+  .hero-title span{
+    display:block;
+    width:max-content;
+    max-width:none;
+    white-space:nowrap;
+  }
+  .hero-role{
+    align-items:flex-start;
+    font-size:clamp(.98rem,5.1vw,1.2rem);
+    gap:.55rem;
+  }
+  .hero-actions{
+    flex-direction:column;
+    gap:.8rem;
+  }
+  .hero-actions .button{width:100%;}
+  .hero-desc{
+    font-size:.98rem;
+    line-height:1.75;
+  }
+  .profile-panel{
+    padding:1rem;
+    border-radius:20px;
+  }
+  .profile-top h2{
+    font-size:clamp(1.55rem,8vw,2rem);
+  }
+}
+
+@media(max-width:480px){
+  .hero-title{
+    font-size:clamp(2.05rem,10.15cqi,3.15rem);
+    letter-spacing:-.07em;
+  }
+  .hero-role{
+    display:grid;
+    grid-template-columns:auto 5px 1fr;
+    width:100%;
+  }
+  .hero-actions{gap:.65rem;}
+  .profile-grid{grid-template-columns:1fr;}
+  .profile-stat{padding:.9rem;}
+}
+
+@media(max-width:360px){
+  .hero-title{font-size:clamp(1.95rem,9.9cqi,2.75rem);}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 
 </style>
@@ -547,7 +522,7 @@ h1,h2,h3,h4,h5,h6,
   </nav>
 </div>
 
-<main>
+<main id="pageContent">
   <header class="hero" id="home">
     <div class="container hero-layout">
       <div class="hero-copy reveal">
@@ -759,15 +734,27 @@ const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
 let lastTrigger=null;
+const pageContent=document.getElementById('pageContent');
 let activeModal=null;
-function getModalFocusableElements(modal){return [...modal.querySelectorAll('button:not([disabled]),[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"]),[contenteditable="true"]')].filter(element=>element.offsetParent!==null)}
-function setPageContentHidden(hidden){document.body.querySelectorAll(':scope > :not(.modal-backdrop)').forEach(element=>{element.inert=hidden;if(hidden){element.setAttribute('aria-hidden','true')}else{element.removeAttribute('aria-hidden')}})}
-function openModal(id,trigger){const modal=document.getElementById(id);if(!modal)return;lastTrigger=trigger;activeModal=modal;modal.classList.add('open');document.body.style.overflow='hidden';setPageContentHidden(true);setTimeout(()=>{const focusableElements=getModalFocusableElements(modal);(focusableElements[0]||modal.querySelector('[data-close]'))?.focus()},20)}
-function closeModals(){document.querySelectorAll('.modal-backdrop.open').forEach(modal=>modal.classList.remove('open'));document.body.style.overflow='';setPageContentHidden(false);activeModal=null;lastTrigger?.focus();lastTrigger=null}
+let previousPageAriaHidden=null;
+function getModalFocusable(modal){return Array.from(modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')).filter(el=>!el.hasAttribute('disabled')&&!el.getAttribute('aria-hidden'))}
+function setPageAccessibilityState(open){if(!pageContent)return;if(open){previousPageAriaHidden=pageContent.getAttribute('aria-hidden');pageContent.setAttribute('aria-hidden','true');pageContent.inert=true}else{if(previousPageAriaHidden===null)pageContent.removeAttribute('aria-hidden');else pageContent.setAttribute('aria-hidden',previousPageAriaHidden);pageContent.inert=false;previousPageAriaHidden=null}}
+function openModal(id,trigger){const modal=document.getElementById(id);if(!modal)return;lastTrigger=trigger;activeModal=modal;modal.classList.add('open');document.body.style.overflow='hidden';setPageAccessibilityState(true);setTimeout(()=>modal.querySelector('[data-close]')?.focus(),20)}
+function closeModals(){document.querySelectorAll('.modal-backdrop.open').forEach(modal=>modal.classList.remove('open'));document.body.style.overflow='';setPageAccessibilityState(false);activeModal=null;lastTrigger?.focus();lastTrigger=null}
 document.querySelectorAll('[data-modal]').forEach(button=>button.addEventListener('click',()=>openModal(button.dataset.modal,button)));
 document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',closeModals));
 document.querySelectorAll('.modal-backdrop').forEach(bg=>bg.addEventListener('click',event=>{if(event.target===bg)closeModals()}));
-document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeModals();return}if(event.key!=='Tab'||!activeModal?.classList.contains('open'))return;const focusableElements=getModalFocusableElements(activeModal);if(!focusableElements.length){event.preventDefault();activeModal.querySelector('[data-close]')?.focus();return}const firstFocusableElement=focusableElements[0];const lastFocusableElement=focusableElements[focusableElements.length-1];if(event.shiftKey&&document.activeElement===firstFocusableElement){event.preventDefault();lastFocusableElement.focus()}else if(!event.shiftKey&&document.activeElement===lastFocusableElement){event.preventDefault();firstFocusableElement.focus()}});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){closeModals();return}
+  if(event.key!=='Tab'||!activeModal||!activeModal.classList.contains('open'))return;
+  const focusable=getModalFocusable(activeModal);
+  if(!focusable.length){event.preventDefault();return}
+  const first=focusable[0];
+  const last=focusable[focusable.length-1];
+  const current=document.activeElement;
+  if(event.shiftKey&&current===first){event.preventDefault();last.focus()}
+  else if(!event.shiftKey&&current===last){event.preventDefault();first.focus()}
+});
 
 const scrollTop=document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>scrollTop.classList.toggle('visible',window.scrollY>500),{passive:true});
@@ -777,51 +764,70 @@ const form=document.getElementById('contactForm');
 if(form)form.addEventListener('submit',function(){setTimeout(()=>this.reset(),100)});
 
 
-// Fit the two-line hero name precisely inside its grid column.
-// This is more reliable than viewport-based font sizing because it uses
-// the actual available width after the profile card and grid gap are applied.
-const heroTitle = document.querySelector('.hero-title');
+</script>
 
-function fitHeroTitle() {
-  if (!heroTitle) return;
 
-  const lines = [...heroTitle.querySelectorAll('span')];
-  if (!lines.length) return;
+<script>
+/* Fits the two-line hero name to the actual mobile content width after Syne loads. */
+(() => {
+  const title = document.querySelector('.hero-title');
+  const copy = document.querySelector('.hero-copy');
+  if (!title || !copy) return;
 
-  const availableWidth = Math.max(0, heroTitle.clientWidth - 10);
-  if (!availableWidth) return;
+  const mobile = window.matchMedia('(max-width: 700px)');
+  let frame = 0;
 
-  const viewport = window.innerWidth;
-  const minSize = viewport <= 480 ? 38 : viewport <= 700 ? 46 : 52;
-  const maxSize = viewport <= 480 ? 66 : viewport <= 700 ? 82 : viewport <= 1180 ? 104 : 106;
+  function fitHeroName() {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      title.style.removeProperty('font-size');
+      if (!mobile.matches) return;
 
-  let low = minSize;
-  let high = maxSize;
+      const available = Math.max(0, copy.clientWidth - 8);
+      const baseSize = parseFloat(getComputedStyle(title).fontSize);
+      if (!available || !baseSize) return;
 
-  for (let i = 0; i < 18; i += 1) {
-    const mid = (low + high) / 2;
-    heroTitle.style.setProperty('--hero-title-size', `${mid}px`);
+      const probe = title.cloneNode(true);
+      Object.assign(probe.style, {
+        position: 'fixed',
+        left: '-10000px',
+        top: '0',
+        width: 'max-content',
+        maxWidth: 'none',
+        fontSize: `${baseSize}px`,
+        visibility: 'hidden',
+        pointerEvents: 'none',
+        contain: 'layout style paint'
+      });
+      probe.querySelectorAll('span').forEach((line) => {
+        line.style.width = 'max-content';
+        line.style.maxWidth = 'none';
+        line.style.whiteSpace = 'nowrap';
+      });
 
-    const widestLine = Math.max(...lines.map(line => line.scrollWidth));
-    if (widestLine <= availableWidth) {
-      low = mid;
-    } else {
-      high = mid;
-    }
+      document.body.appendChild(probe);
+      const widestLine = Math.max(
+        ...Array.from(probe.querySelectorAll('span'), line => line.getBoundingClientRect().width)
+      );
+      probe.remove();
+
+      if (widestLine > available) {
+        const fittedSize = Math.max(28, baseSize * (available / widestLine) * 0.97);
+        title.style.fontSize = `${fittedSize.toFixed(2)}px`;
+      }
+    });
   }
 
-  // A small safety margin avoids sub-pixel clipping on different browsers.
-  heroTitle.style.setProperty('--hero-title-size', `${Math.max(minSize, low - 1.5)}px`);
-}
+  window.addEventListener('resize', fitHeroName, { passive: true });
+  window.addEventListener('orientationchange', fitHeroName, { passive: true });
+  mobile.addEventListener?.('change', fitHeroName);
+  new ResizeObserver(fitHeroName).observe(copy);
 
-if (document.fonts?.ready) {
-  document.fonts.ready.then(fitHeroTitle);
-} else {
-  window.addEventListener('load', fitHeroTitle, { once: true });
-}
-window.addEventListener('resize', fitHeroTitle, { passive: true });
-fitHeroTitle();
-
+  if (document.fonts?.ready) document.fonts.ready.then(fitHeroName);
+  window.addEventListener('load', fitHeroName, { once: true });
+  fitHeroName();
+})();
 </script>
+
 </body>
 </html>
